@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מוסדות חלב חיטים | טירת כרמל</title>
+    
+    <!-- Google Fonts: Frank Ruhl Libre (Luxury Serif) and Assistant (Clean Sans for Hebrew) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              royal: {
+                900: '#050e1c',
+                800: '#0a192f',     // Deep Royal Blue
+                700: '#112240',
+              },
+              gold: {
+                100: '#F9F1D8',
+                200: '#F0DEAA',
+                300: '#E5C558',
+                400: '#D4AF37',     // Primary Gold
+                500: '#C59D24',
+                600: '#B59020',
+                700: '#8A6D14',
+              },
+              cream: '#fdfdfc',     // Cleaner Off-white
+              sand: '#f7f7f5',
+            },
+            fontFamily: {
+              serif: ['"Frank Ruhl Libre"', 'serif'],
+              sans: ['"Assistant"', 'sans-serif'], // Changed to Assistant for better clarity
+            },
+            backgroundImage: {
+              'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F0DEAA 50%, #B59020 100%)',
+              'royal-gradient': 'linear-gradient(to bottom, #0a192f, #050e1c)',
+            },
+            boxShadow: {
+              'gold': '0 10px 40px -10px rgba(212, 175, 55, 0.5)',
+              'luxury': '0 20px 50px -12px rgba(0, 0, 0, 0.25)',
+            },
+            letterSpacing: {
+              'widest-luxury': '0.15em', // Slightly reduced for better readability
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Luxury Selection */
+      ::selection {
+        background: #D4AF37;
+        color: #0a192f;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050e1c;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #D4AF37, #B59020);
+        border-radius: 4px;
+      }
+      
+      /* Smooth scrolling offset */
+      html {
+        scroll-padding-top: 100px;
+      }
+
+      /* Image visibility overrides */
+      .gallery img,
+      img {
+        opacity: 1 !important;
+        filter: brightness(100%) contrast(100%) !important;
+      }
+
+      /* Text Utilities */
+      .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+      
+      .text-shadow-gold {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-cream text-gray-900 font-sans antialiased overflow-x-hidden selection:bg-gold-400 selection:text-royal-900">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
