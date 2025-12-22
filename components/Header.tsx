@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, HeartHandshake } from 'lucide-react';
-import { NAV_ITEMS, EXTERNAL_LINKS, SITE_IMAGES } from '../constants';
+import { NAV_ITEMS } from '../constants';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // הגדרת לינק התרומה החדש
+  const DONATE_URL = "https://causematch.com/helev-hitim";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,14 +52,18 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Right: Logo */}
+        {/* Right: Logo - Updated to image 23 in gallery folder */}
         <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="flex items-center group relative z-50">
            <img 
-             src={SITE_IMAGES.LOGO} 
+             src="/images/gallery/23.jpg" 
              alt="לוגו מוסדות חלב חיטים" 
-             className={`transition-all duration-700 object-contain drop-shadow-md filter ${
+             className={`transition-all duration-700 object-contain drop-shadow-md rounded-full filter ${
                isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'
              }`}
+             onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (!target.src.includes('23.JPG')) target.src = "/images/gallery/23.JPG";
+             }}
            />
         </a>
 
@@ -82,8 +89,9 @@ const Header: React.FC = () => {
         {/* Left: Donate Button & Mobile Toggle */}
         <div className="flex items-center space-x-6 space-x-reverse">
           <motion.a 
-            href={EXTERNAL_LINKS.DONATE}
+            href={DONATE_URL}
             target="_blank"
+            rel="noopener noreferrer"
             className={`hidden md:flex items-center gap-3 py-2 px-6 rounded-sm border transition-all duration-300 ${
               isScrolled 
                 ? 'border-gold-400/30 bg-gold-400/10 text-gold-400 hover:bg-gold-400 hover:text-royal-900' 
@@ -130,11 +138,12 @@ const Header: React.FC = () => {
             </motion.a>
           ))}
           <motion.a 
-            href={EXTERNAL_LINKS.DONATE}
+            href={DONATE_URL}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
             target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 bg-gold-gradient text-royal-900 font-bold text-xl py-4 px-12 rounded-full shadow-gold"
             onClick={() => setIsMobileMenuOpen(false)}
           >
