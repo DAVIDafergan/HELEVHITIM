@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SITE_IMAGES } from '../constants';
 import { Quote } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 md:py-32 bg-cream relative overflow-hidden">
-      {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#0a192f 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
@@ -21,27 +19,33 @@ const About: React.FC = () => {
             className="w-full md:w-1/2 relative z-10"
           >
              <div className="relative">
-                {/* Gold Frame Border */}
                 <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold-400/30 z-0 hidden md:block"></div>
                 
                 <img 
-                  src="/images/4.jpg" // כאן אנחנו מגדירים את תמונה 4
-                  alt="דמות רבנית או מייסד המוסדות" 
-                  className="relative z-10 w-full h-[350px] md:h-[600px] object-cover shadow-2xl filter saturate-[0.9] hover:saturate-100 transition-all duration-700 rounded-sm"
+                  src="/images/4.jpg" 
+                  alt="דמות רבנית" 
+                  className="relative z-10 w-full h-[400px] md:h-[650px] object-cover object-top shadow-2xl filter saturate-[0.9] hover:saturate-100 transition-all duration-700 rounded-sm"
+                  onError={(e) => {
+                    // אם 4.jpg לא עובד, מנסה 4.JPG (אותיות גדולות)
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('4.JPG')) {
+                      target.src = "/images/4.JPG";
+                    }
+                  }}
                 />
              </div>
           </motion.div>
 
-          {/* Text Block - Overlapping */}
+          {/* Text Block */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="w-full md:w-7/12 md:-mr-20 z-20 mt-8 md:mt-0"
+            className="w-full md:w-7/12 md:-mr-20 z-20 mt-[-40px] md:mt-0"
           >
-            <div className="bg-white p-6 md:p-16 shadow-luxury md:border-r-4 border-gold-400 rounded-sm">
-              <div className="flex items-center gap-4 mb-4 md:mb-6">
+            <div className="bg-white p-8 md:p-16 shadow-luxury md:border-r-4 border-gold-400 rounded-sm text-right" dir="rtl">
+              <div className="flex items-center gap-4 mb-4 md:mb-6 flex-row-reverse">
                  <div className="h-px w-8 md:w-12 bg-gold-400"></div>
                  <span className="text-gold-700 font-sans text-xs md:text-sm font-bold tracking-widest-luxury uppercase">מי אנחנו</span>
               </div>
@@ -56,8 +60,8 @@ const About: React.FC = () => {
                 החזון שלנו הוא לחבר בין עולמות – בין חסד לנתינה, בין חינוך למצוינות, ובין מסורת לקידמה.
               </p>
 
-              <div className="relative pl-4 md:pl-8 border-l-4 border-gold-200 py-2">
-                 <Quote className="absolute -top-3 -left-3 text-gold-300 fill-current w-8 h-8 md:w-10 md:h-10 opacity-50" />
+              <div className="relative pr-8 border-r-4 border-gold-200 py-2">
+                 <Quote className="absolute -top-3 -right-3 text-gold-300 fill-current w-8 h-8 md:w-10 md:h-10 opacity-30 rotate-180" />
                  <p className="text-royal-800 font-serif text-xl md:text-2xl italic leading-relaxed font-medium">
                    "אנו פועלים יום יום, שעה שעה, כדי להאיר את העיר באור של תורה, אהבת חינם ועזרה לזולת."
                  </p>

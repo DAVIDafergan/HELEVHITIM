@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SITE_IMAGES } from '../constants';
 import { Plus } from 'lucide-react';
 
 const Gallery: React.FC = () => {
+  // יצירת רשימה של כל התמונות מ-1 עד 20, למעט תמונה 4
+  const imageNumbers = Array.from({ length: 20 }, (_, i) => i + 1).filter(num => num !== 4);
+
   return (
     <section id="gallery" className="py-32 bg-royal-900 text-white relative">
       <div className="container mx-auto px-4 md:px-8">
@@ -21,19 +23,23 @@ const Gallery: React.FC = () => {
 
         {/* Masonry Layout using CSS Columns */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {SITE_IMAGES.GALLERY.map((src, index) => (
+          {imageNumbers.map((num) => (
             <motion.div
-              key={index}
+              key={num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="break-inside-avoid relative group overflow-hidden cursor-pointer"
+              className="break-inside-avoid relative group overflow-hidden cursor-pointer rounded-sm"
             >
               <img 
-                src={src} 
-                alt={`Gallery image ${index + 1}`} 
+                src={`/images/${num}.jpg`} // טוען את התמונה לפי המספר שלה
+                alt={`Gallery image ${num}`} 
                 className="w-full h-auto transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+                onError={(e) => {
+                  // אם תמונה מסוימת חסרה בתיקייה, היא פשוט לא תוצג
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
               />
               
               {/* Overlay */}
