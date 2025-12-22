@@ -12,7 +12,16 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="text-sm font-light tracking-wide text-center md:text-right">
-          © {new Date().getFullYear()} כל הזכויות שמורות. נבנה באהבה לטירת כרמל.
+          © {new Date().getFullYear()} כל הזכויות שמורות. <br className="md:hidden" />
+          האתר נבנה ע"י{' '}
+          <a 
+            href="https://wa.me/message/WZKLTKH4KELMD1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gold-400 hover:text-gold-300 transition-colors font-bold underline decoration-gold-400/30 underline-offset-4"
+          >
+            DA ניהול פרויקטים ויזמות
+          </a>
         </div>
 
         <div className="flex gap-8 text-sm tracking-wider uppercase">
