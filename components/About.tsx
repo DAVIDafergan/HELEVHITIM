@@ -25,7 +25,7 @@ const About: React.FC = () => {
                 <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold-400/30 z-0 hidden md:block"></div>
                 
                 <img 
-                  src={SITE_IMAGES.ABOUT_IMAGE}
+                  src="/images/4.jpg" // כאן אנחנו מגדירים את תמונה 4
                   alt="דמות רבנית או מייסד המוסדות" 
                   className="relative z-10 w-full h-[350px] md:h-[600px] object-cover shadow-2xl filter saturate-[0.9] hover:saturate-100 transition-all duration-700 rounded-sm"
                 />
