@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Sparkles } from 'lucide-react';
-import { SITE_IMAGES } from '../constants';
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -32,12 +31,16 @@ const Hero: React.FC = () => {
 
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden" id="home">
-      {/* Parallax Background */}
+      {/* Parallax Background - Updated to image 27 */}
       <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
         <img 
-          src={SITE_IMAGES.HERO_BACKGROUND}
-          alt="רקע ירושלים או קודש" 
+          src="/images/gallery/27.jpg"
+          alt="רקע ממלכת התורה והחסד" 
           className="w-full h-full object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            if (!target.src.includes('27.JPG')) target.src = "/images/gallery/27.JPG";
+          }}
         />
         {/* Cinematic Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-royal-900/70 via-royal-900/50 to-royal-900/90" />

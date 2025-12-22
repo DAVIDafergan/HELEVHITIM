@@ -1,16 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DONATION_TIERS, EXTERNAL_LINKS } from '../constants';
+import { DONATION_TIERS } from '../constants';
 import { HeartHandshake, CreditCard, ShieldCheck } from 'lucide-react';
 
 const Donate: React.FC = () => {
+  // כתובת התרומה המעודכנת
+  const CAUSEMATCH_URL = "https://causematch.com/helev-hitim";
+
   return (
     <section id="donate" className="py-20 md:py-32 relative overflow-hidden bg-royal-800">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-royal-900 to-royal-800"></div>
       <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-12 relative z-10 text-right" dir="rtl">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h2 
              initial={{ opacity: 0, y: 20 }}
@@ -36,7 +39,7 @@ const Donate: React.FC = () => {
             {DONATION_TIERS.map((tier, index) => (
               <motion.a
                 key={tier.amount}
-                href={`${EXTERNAL_LINKS.DONATE}&amount=${tier.amount}`}
+                href={CAUSEMATCH_URL} // כל כפתור סכום שולח ללינק הראשי
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 30 }}
@@ -73,7 +76,7 @@ const Donate: React.FC = () => {
           </div>
 
           <motion.a
-             href={EXTERNAL_LINKS.DONATE}
+             href={CAUSEMATCH_URL}
              target="_blank"
              rel="noopener noreferrer"
              whileHover={{ scale: 1.02 }}

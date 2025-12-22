@@ -3,31 +3,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Users, GraduationCap, Baby, Library, X, ArrowLeft, Heart, School, Flower2 } from 'lucide-react';
 import { EXTERNAL_LINKS } from '../constants';
 
-// רשימת הפעילויות המלאה - מעודכנת עם הנתיב /images/gallery/
+// רשימת הפעילויות המלאה - מעודכנת עם התמונות החדשות שביקשת
 const UPDATED_ACTIVITIES = [
   {
     id: 'kollel',
     title: 'כולל אברכים',
-    image: '/images/gallery/1.jpg',
+    image: '/images/gallery/9.jpg', // תמונה 9 כפי שביקשת
     description: 'לימוד מעמיק ותמיכה באברכים מצטיינים המקדישים את חייהם לתורה.',
     longDescription: 'הכולל מהווה את הלב הפועם של המוסדות, בו לומדים עשרות אברכים השוקדים על תלמודם ביום ובלילה באווירת התעלות מיוחדת, תוך צמיחה תורנית מתמדת.',
-    gallery: ['/images/gallery/1.jpg', '/images/gallery/2.jpg']
+    gallery: ['/images/gallery/9.jpg', '/images/gallery/2.jpg']
   },
   {
     id: 'yeshiva',
     title: 'ישיבה גדולה',
-    image: '/images/gallery/17.jpg',
+    image: '/images/gallery/11.jpg', // תמונה 11 כפי שביקשת
     description: 'היכל של תורה ועבודה שבו מעצבים את דור העתיד של עולם הרבנות.',
     longDescription: 'בישיבה הגדולה שלנו, הבחורים זוכים למעטפת רוחנית ולימודית ברמה הגבוהה ביותר, עם דגש על פיתוח האישיות, בניין התורה ויראת שמיים.',
-    gallery: ['/images/gallery/17.jpg', '/images/gallery/16.jpg']
+    gallery: ['/images/gallery/11.jpg', '/images/gallery/16.jpg']
   },
   {
     id: 'women',
     title: 'מדרשה לנשים',
-    image: '/images/gallery/7.jpg',
+    image: '/images/gallery/24.jpg', // תמונה 24 כפי שביקשת
     description: 'בית חם לאישה הדתית - שיעורים, סדנאות והתעלות רוחנית.',
     longDescription: 'המדרשה מציעה מגוון עשיר של שיעורי אמונה, זוגיות וחינוך ילדים, המעניקים כוח, השראה וכלים מעשיים לבית היהודי המודרני.',
-    gallery: ['/images/gallery/7.jpg', '/images/gallery/8.jpg']
+    gallery: ['/images/gallery/24.jpg', '/images/gallery/8.jpg']
   },
   {
     id: 'synagogue',
@@ -40,10 +40,10 @@ const UPDATED_ACTIVITIES = [
   {
     id: 'daycare',
     title: 'מעונות יום',
-    image: '/images/gallery/9.jpg',
+    image: '/images/gallery/3.jpg', // תמונה 3 כפי שביקשת
     description: 'חינוך חם, אוהב ומקצועי לדור העתיד בסביבה בטוחה וערכית.',
     longDescription: 'מעונות היום שלנו מספקים לילדיכם את המעטפת הטובה ביותר - צוות מסור ומנוסה, ארוחות מזינות ותכנים חינוכיים המותאמים לגיל הרך.',
-    gallery: ['/images/gallery/9.jpg', '/images/gallery/10.jpg']
+    gallery: ['/images/gallery/3.jpg', '/images/gallery/10.jpg']
   },
   {
     id: 'householders',
@@ -189,7 +189,7 @@ const Activities: React.FC = () => {
                         </p>
                         
                         <a 
-                          href={EXTERNAL_LINKS.DONATE}
+                          href="https://causematch.com/helev-hitim"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex justify-center items-center gap-4 bg-royal-900 text-white px-8 py-3 md:px-10 md:py-4 hover:bg-gold-600 transition-all duration-300 shadow-xl group self-start w-full md:w-auto rounded-sm"
