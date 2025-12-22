@@ -6,13 +6,13 @@ const Gallery: React.FC = () => {
   // יצירת מערך של מספרים 1 עד 20
   const imageNumbers = Array.from({ length: 20 }, (_, i) => i + 1);
 
-  // פונקציה לטיפול בשגיאות טעינת תמונה (Case Sensitivity)
+  // פונקציה לטיפול בשגיאות טעינת תמונה (Case Sensitivity ונתיב נכון)
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, num: number) => {
     const target = e.currentTarget;
     
-    // אם נכשל ב-jpg קטן, מנסה JPG גדול
+    // אם נכשל ב-jpg קטן בתוך תיקיית gallery, מנסה JPG גדול באותה תיקייה
     if (!target.src.includes('.JPG')) {
-      target.src = `/images/${num}.JPG`;
+      target.src = `/images/gallery/${num}.JPG`;
     } else {
       // אם גם זה נכשל, מסתיר את כל האלמנט כדי שלא יהיה חור בגלריה
       const parent = target.parentElement?.parentElement;
@@ -52,7 +52,7 @@ const Gallery: React.FC = () => {
             >
               <div className="relative overflow-hidden">
                 <img 
-                  src={`/images/${num}.jpg`} 
+                  src={`/images/gallery/${num}.jpg`} // הנתיב המעודכן לתיקיית gallery
                   alt={`Gallery image ${num}`} 
                   className="w-full h-auto transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
                   onError={(e) => handleImageError(e, num)}

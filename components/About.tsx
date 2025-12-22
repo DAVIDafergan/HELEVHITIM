@@ -22,14 +22,14 @@ const About: React.FC = () => {
                 <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold-400/30 z-0 hidden md:block"></div>
                 
                 <img 
-                  src="/images/4.jpg" 
+                  src="/images/gallery/4.jpg" // נתיב מעודכן לתיקיית gallery
                   alt="דמות רבנית" 
                   className="relative z-10 w-full h-[400px] md:h-[650px] object-cover object-top shadow-2xl filter saturate-[0.9] hover:saturate-100 transition-all duration-700 rounded-sm"
                   onError={(e) => {
-                    // אם 4.jpg לא עובד, מנסה 4.JPG (אותיות גדולות)
                     const target = e.target as HTMLImageElement;
+                    // ניסיון תיקון: אם לא מצא בנתיב המקורי, מנסה סיומת גדולה
                     if (!target.src.includes('4.JPG')) {
-                      target.src = "/images/4.JPG";
+                      target.src = "/images/gallery/4.JPG";
                     }
                   }}
                 />

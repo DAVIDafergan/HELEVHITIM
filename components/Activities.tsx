@@ -3,55 +3,55 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Users, GraduationCap, Baby, Library, X, ArrowLeft, Heart, School, Flower2 } from 'lucide-react';
 import { EXTERNAL_LINKS } from '../constants';
 
-// רשימת הפעילויות המלאה - מעודכנת עם כל מה שביקשת
+// רשימת הפעילויות המלאה - מעודכנת עם הנתיב /images/gallery/
 const UPDATED_ACTIVITIES = [
   {
     id: 'kollel',
     title: 'כולל אברכים',
-    image: '/images/1.jpg',
+    image: '/images/gallery/1.jpg',
     description: 'לימוד מעמיק ותמיכה באברכים מצטיינים המקדישים את חייהם לתורה.',
     longDescription: 'הכולל מהווה את הלב הפועם של המוסדות, בו לומדים עשרות אברכים השוקדים על תלמודם ביום ובלילה באווירת התעלות מיוחדת, תוך צמיחה תורנית מתמדת.',
-    gallery: ['/images/1.jpg', '/images/2.jpg']
+    gallery: ['/images/gallery/1.jpg', '/images/gallery/2.jpg']
   },
   {
     id: 'yeshiva',
     title: 'ישיבה גדולה',
-    image: '/images/17.jpg',
+    image: '/images/gallery/17.jpg',
     description: 'היכל של תורה ועבודה שבו מעצבים את דור העתיד של עולם הרבנות.',
     longDescription: 'בישיבה הגדולה שלנו, הבחורים זוכים למעטפת רוחנית ולימודית ברמה הגבוהה ביותר, עם דגש על פיתוח האישיות, בניין התורה ויראת שמיים.',
-    gallery: ['/images/17.jpg', '/images/16.jpg']
+    gallery: ['/images/gallery/17.jpg', '/images/gallery/16.jpg']
   },
   {
     id: 'women',
     title: 'מדרשה לנשים',
-    image: '/images/7.jpg',
+    image: '/images/gallery/7.jpg',
     description: 'בית חם לאישה הדתית - שיעורים, סדנאות והתעלות רוחנית.',
     longDescription: 'המדרשה מציעה מגוון עשיר של שיעורי אמונה, זוגיות וחינוך ילדים, המעניקים כוח, השראה וכלים מעשיים לבית היהודי המודרני.',
-    gallery: ['/images/7.jpg', '/images/8.jpg']
+    gallery: ['/images/gallery/7.jpg', '/images/gallery/8.jpg']
   },
   {
     id: 'synagogue',
     title: 'בית כנסת',
-    image: '/images/15.jpg',
+    image: '/images/gallery/15.jpg',
     description: 'מרכז תפילה שוקק חיים המהווה בית לכל תושבי האזור.',
     longDescription: 'בית הכנסת שלנו פתוח לרווחה לכל יהודי. מקום של אחדות, תפילה בציבור, ושיעורי תורה יומיומיים באווירה חמה ומזמינה לכל הגילאים.',
-    gallery: ['/images/15.jpg', '/images/14.jpg']
+    gallery: ['/images/gallery/15.jpg', '/images/gallery/14.jpg']
   },
   {
     id: 'daycare',
     title: 'מעונות יום',
-    image: '/images/9.jpg',
+    image: '/images/gallery/9.jpg',
     description: 'חינוך חם, אוהב ומקצועי לדור העתיד בסביבה בטוחה וערכית.',
     longDescription: 'מעונות היום שלנו מספקים לילדיכם את המעטפת הטובה ביותר - צוות מסור ומנוסה, ארוחות מזינות ותכנים חינוכיים המותאמים לגיל הרך.',
-    gallery: ['/images/9.jpg', '/images/10.jpg']
+    gallery: ['/images/gallery/9.jpg', '/images/gallery/10.jpg']
   },
   {
     id: 'householders',
     title: 'שיעורים לבעלי בתים',
-    image: '/images/5.jpg',
+    image: '/images/gallery/5.jpg',
     description: 'קביעת עתים לתורה באווירה נעימה המותאמת לאנשים עובדים.',
     longDescription: 'מדי ערב מתקבצים עשרות משתתפים לשיעורי גמרא, הלכה ומחשבה. המפגש מאפשר לכל יהודי עובד לשאוב כוחות רוחניים ולהתחבר למסורת.',
-    gallery: ['/images/5.jpg', '/images/6.jpg']
+    gallery: ['/images/gallery/5.jpg', '/images/gallery/6.jpg']
   }
 ];
 
@@ -68,7 +68,6 @@ const Activities: React.FC = () => {
 
   const selectedActivity = UPDATED_ACTIVITIES.find(a => a.id === selectedId);
 
-  // פונקציה להחזרת האייקון המתאים
   const getIcon = (id: string) => {
     switch(id) {
       case 'kollel': return <Library className="w-5 h-5 md:w-6 md:h-6" />;
@@ -80,7 +79,6 @@ const Activities: React.FC = () => {
     }
   };
 
-  // פתרון בעיית JPG/jpg (Case Sensitivity)
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
     if (target.src.endsWith('.jpg')) {
@@ -94,7 +92,6 @@ const Activities: React.FC = () => {
     <section id="activities" className="py-20 md:py-32 bg-sand">
       <div className="container mx-auto px-4 md:px-12 text-right" dir="rtl">
         
-        {/* Header - שמירה על העיצוב המקורי */}
         <div className="text-center mb-12 md:mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +112,6 @@ const Activities: React.FC = () => {
           </motion.h2>
         </div>
 
-        {/* The Grid - רספונסיביות מלאה */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mb-12 md:mb-20 text-right">
           {UPDATED_ACTIVITIES.map((activity, index) => (
             <motion.div
@@ -129,7 +125,6 @@ const Activities: React.FC = () => {
                 selectedId === activity.id ? 'ring-2 ring-gold-400' : ''
               }`}
             >
-              {/* Image Layer */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src={activity.image} 
@@ -140,7 +135,6 @@ const Activities: React.FC = () => {
                 <div className="absolute inset-0 bg-royal-900/50 md:bg-royal-900/30 md:group-hover:bg-royal-900/70 transition-colors duration-500"></div>
               </div>
 
-              {/* Content Overlay */}
               <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 text-white">
                 <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
                   <div className="text-gold-400 mb-2 md:mb-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 md:delay-100 text-right">
@@ -162,7 +156,6 @@ const Activities: React.FC = () => {
           ))}
         </div>
 
-        {/* Detailed View Section - AnimatePresence המקורי */}
         <div ref={detailSectionRef}>
           <AnimatePresence mode="wait">
             {selectedActivity && (
@@ -183,7 +176,6 @@ const Activities: React.FC = () => {
                    </button>
 
                    <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px]">
-                      {/* Content Side */}
                       <div className="p-8 md:p-10 lg:p-20 lg:w-1/2 flex flex-col justify-center bg-white order-2 lg:order-1 text-right">
                         <div className="flex items-center gap-3 text-gold-600 mb-4 md:mb-6 justify-start flex-row-reverse">
                           {getIcon(selectedActivity.id)}
@@ -207,7 +199,6 @@ const Activities: React.FC = () => {
                         </a>
                       </div>
 
-                      {/* Visual Side */}
                       <div className="h-64 md:h-auto lg:w-1/2 bg-gray-100 relative order-1 lg:order-2">
                         <img 
                             src={selectedActivity.image} 
@@ -222,7 +213,6 @@ const Activities: React.FC = () => {
             )}
           </AnimatePresence>
         </div>
-
       </div>
     </section>
   );
