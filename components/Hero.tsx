@@ -117,15 +117,15 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            {/* הכפתור המרכזי שונה למעבר לאתר תרומה */}
+            {/* הכפתור הראשי - מעודכן לכחול כהה של המוסדות, טקסט מודגש וברור */}
             <a 
               href={CAUSEMATCH_URL} 
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-8 py-3 md:px-12 md:py-5 overflow-hidden font-serif font-medium tracking-tighter text-royal-900 bg-gold-400 border-2 border-gold-400 rounded-none transition-all duration-300 hover:bg-white hover:border-white shadow-gold"
+              className="group relative inline-flex items-center justify-center px-8 py-4 md:px-14 md:py-6 overflow-hidden font-sans font-black tracking-widest text-white bg-royal-900 border-2 border-gold-400 rounded-sm transition-all duration-300 hover:bg-gold-400 hover:text-royal-900 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
             >
-              <Heart size={20} className="ml-3 fill-current" />
-              <span className="relative text-lg md:text-2xl tracking-widest font-bold uppercase">בואו לקחת חלק</span>
+              <Heart size={24} className="ml-3 fill-current" />
+              <span className="relative text-xl md:text-3xl tracking-widest uppercase">מעבר לאתר התרומה</span>
             </a>
           </motion.div>
         </div>
@@ -171,17 +171,17 @@ const Hero: React.FC = () => {
           </motion.h2>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-            {/* כפתור תרומה צהוב מרכזי */}
+            {/* כפתור תרומה כחול מודגש */}
             <motion.a
               href={CAUSEMATCH_URL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: "0 15px 35px rgba(212,175,55,0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center justify-center gap-4 bg-gold-400 text-black px-16 py-6 rounded-sm font-bold text-2xl md:text-4xl transition-all w-full md:w-auto shadow-2xl"
+              className="group flex items-center justify-center gap-4 bg-royal-900 text-white border-4 border-gold-400 px-16 py-6 rounded-sm font-black text-2xl md:text-4xl transition-all w-full md:w-auto shadow-2xl"
             >
               <Heart size={36} fill="currentColor" />
-              <span>בואו לקחת חלק</span>
+              <span>מעבר לאתר התרומה</span>
             </motion.a>
 
             {/* כפתור תקנון ההגרלה */}
@@ -197,22 +197,22 @@ const Hero: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. כפתור תרומה צף (Sticky Button) שמופיע בגלילה */}
+      {/* 4. כפתור תרומה צף (Sticky Button) שמופיע בגלילה - מופעל כעת גם בנייד */}
       <AnimatePresence>
         {showSticky && (
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
-            className="fixed bottom-8 left-8 z-[100] hidden md:block"
+            className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[100]"
           >
             <a
               href={CAUSEMATCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-gold-400 text-royal-900 px-8 py-4 rounded-full font-bold shadow-2xl hover:bg-white transition-all group"
+              className="flex items-center gap-4 bg-gold-400 text-royal-900 px-6 py-3 md:px-8 md:py-4 rounded-full font-black shadow-2xl hover:bg-white transition-all group"
             >
-              <span className="text-xl">תרומה מהירה</span>
+              <span className="text-lg md:text-xl">תרומה מהירה</span>
               <div className="bg-royal-900 text-gold-400 p-2 rounded-full group-hover:bg-gold-400 group-hover:text-royal-900 transition-colors">
                 <Heart size={20} fill="currentColor" />
               </div>
