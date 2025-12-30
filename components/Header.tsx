@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // הגדרת לינק התרומה החדש
-  const DONATE_URL = "https://causematch.com/helev-hitim";
+  const DONATE_URL = "https://causematch.com/chelev-chitim";
 
   useEffect(() => {
     const handleScroll = () => {

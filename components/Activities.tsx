@@ -189,7 +189,7 @@ const Activities: React.FC = () => {
                         </p>
                         
                         <a 
-                          href="https://causematch.com/helev-hitim"
+                          href="https://causematch.com/chelev-chitim"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex justify-center items-center gap-4 bg-royal-900 text-white px-8 py-3 md:px-10 md:py-4 hover:bg-gold-600 transition-all duration-300 shadow-xl group self-start w-full md:w-auto rounded-sm"

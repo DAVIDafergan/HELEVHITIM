@@ -1,11 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DONATION_TIERS } from '../constants';
 import { HeartHandshake, CreditCard, ShieldCheck } from 'lucide-react';
 
 const Donate: React.FC = () => {
   // כתובת התרומה המעודכנת
-  const CAUSEMATCH_URL = "https://causematch.com/helev-hitim";
+  const CAUSEMATCH_URL = "https://causematch.com/chelev-chitim";
+
+  // הגדרת מסלולי התרומה החדשים כפי שביקשת
+  const CUSTOM_TIERS = [
+    {
+      amount: 180,
+      label: "שותף לדרך",
+      description: "הוראת קבע למינימום 24 חודשים"
+    },
+    {
+      amount: 360,
+      label: "עמוד התווך",
+      description: "הוראת קבע מינימום 24 חודש"
+    },
+    {
+      amount: 613,
+      label: "שותף נצח",
+      description: "הוראת קבע מינימום 24 חודש"
+    }
+  ];
 
   return (
     <section id="donate" className="py-20 md:py-32 relative overflow-hidden bg-royal-800">
@@ -36,10 +54,10 @@ const Donate: React.FC = () => {
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16">
-            {DONATION_TIERS.map((tier, index) => (
+            {CUSTOM_TIERS.map((tier, index) => (
               <motion.a
                 key={tier.amount}
-                href={CAUSEMATCH_URL} // כל כפתור סכום שולח ללינק הראשי
+                href={CAUSEMATCH_URL} // כל כפתור סכום שולח ללינק הראשי המעודכן
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 30 }}
@@ -52,12 +70,12 @@ const Donate: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 
                 <div className="relative z-10 flex flex-row md:flex-col justify-between md:justify-center items-center h-full gap-4">
-                  <div className="text-4xl md:text-5xl font-serif font-bold text-white md:mb-4 group-hover:text-royal-900 transition-colors">
+                  <div className="text-4xl md:text-5xl font-serif font-bold text-white md:mb-4 group-hover:text-royal-900 transition-colors text-left md:text-center">
                     ₪{tier.amount}
                   </div>
                   
                   {/* Divider - Hidden on mobile, visible on desktop */}
-                  <div className="hidden md:block h-px w-10 bg-gold-500 mb-6 group-hover:bg-royal-900/40"></div>
+                  <div className="hidden md:block h-px w-10 bg-gold-500 mb-6 group-hover:bg-royal-900/40 mx-auto"></div>
                   
                   {/* Vertical divider for mobile */}
                   <div className="block md:hidden w-px h-12 bg-white/10"></div>
