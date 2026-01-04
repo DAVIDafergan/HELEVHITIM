@@ -49,12 +49,12 @@ const Hero: React.FC = () => {
     <>
       {/* סקציית הסרטון המרכזית */}
       <section ref={ref} className="relative h-screen w-full overflow-hidden" id="home">
-        {/* YouTube Background Video - pzPu80PjlW0 */}
+        {/* YouTube Background Video - OGGnAW1DUNw */}
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
           <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
             <iframe
               className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
-              src="https://www.youtube.com/embed/pzPu80PjlW0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=pzPu80PjlW0&playsinline=1"
+              src="https://www.youtube.com/embed/OGGnAW1DUNw?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=OGGnAW1DUNw&playsinline=1"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
