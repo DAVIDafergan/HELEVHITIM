@@ -1,11 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Sparkles, Heart, FileText } from 'lucide-react';
+import { ChevronDown, Sparkles, Heart, FileText, Play, Download } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
   const [showSticky, setShowSticky] = useState(false);
   const CAUSEMATCH_URL = "https://causematch.com/chelev-chitim/549930";
+  const YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v=OGGnAW1DUNw";
+  const PDF_FILE_PATH = "/booklet.pdf"; // נתיב לקובץ ה-PDF
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -116,6 +118,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
+            className="flex flex-col md:flex-row gap-4 md:gap-6"
           >
             {/* הכפתור הראשי - מעודכן לכחול מודגש עם אפקט באז בריחוף */}
             <motion.a 
@@ -129,6 +132,19 @@ const Hero: React.FC = () => {
               <Heart size={24} className="ml-3 fill-current group-hover:animate-pulse" />
               <span className="relative text-xl md:text-3xl tracking-widest uppercase">מעבר לאתר התרומה</span>
             </motion.a>
+
+            {/* כפתור צפייה בסרטון הקמפיין */}
+            <motion.a 
+              href={YOUTUBE_VIDEO_URL} 
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-6 font-sans font-bold text-white border-2 border-white/30 rounded-sm backdrop-blur-sm transition-all duration-300"
+            >
+              <Play size={24} className="ml-3 fill-current" />
+              <span className="text-xl md:text-2xl">צפו בסרטון</span>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -136,7 +152,7 @@ const Hero: React.FC = () => {
         <motion.div 
           style={{ opacity }}
           className="absolute bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 text-gold-400 cursor-pointer"
-          onClick={(e) => {
+          onClick={() => {
               const el = document.getElementById('banner-display');
               if(el) el.scrollIntoView({ behavior: 'smooth'});
           }}
@@ -186,15 +202,28 @@ const Hero: React.FC = () => {
               <span>מעבר לאתר התרומה</span>
             </motion.a>
 
-            {/* כפתור תקנון ההגרלה */}
-            <motion.a
-              href="#"
-              whileHover={{ y: -3 }}
-              className="flex items-center gap-3 text-white hover:text-gold-400 transition-all border-b-2 border-white/20 hover:border-gold-400 pb-2 text-lg md:text-xl font-medium"
-            >
-              <FileText size={24} />
-              <span>מעבר לתקנון ההגרלה</span>
-            </motion.a>
+            <div className="flex flex-col gap-4 items-start">
+              {/* כפתור חוברת ההגרלה */}
+              <motion.a
+                href={PDF_FILE_PATH}
+                download="Raffle_Booklet.pdf"
+                whileHover={{ y: -3 }}
+                className="flex items-center gap-3 text-gold-400 hover:text-white transition-all border-b-2 border-gold-400/20 hover:border-white pb-2 text-lg md:text-2xl font-bold"
+              >
+                <Download size={24} />
+                <span>להורדת חוברת ההגרלה</span>
+              </motion.a>
+
+              {/* כפתור תקנון ההגרלה */}
+              <motion.a
+                href="#"
+                whileHover={{ y: -3 }}
+                className="flex items-center gap-3 text-white/70 hover:text-gold-400 transition-all border-b-2 border-white/10 hover:border-gold-400 pb-2 text-base md:text-lg font-medium"
+              >
+                <FileText size={20} />
+                <span>מעבר לתקנון ההגרלה</span>
+              </motion.a>
+            </div>
           </div>
         </div>
       </section>
